@@ -10,7 +10,7 @@ elevation = 50 * u.m
 location = EarthLocation(lat=telescopeLatitude * u.deg, lon=telescopeLongitude * u.deg, height=elevation)
 
 def automatic_tracking_better_astropy():
-    time_now = Time(datetime.now(timezone.utc))  # Correctly define time
+    time_now = Time(datetime.now(timezone.utc)) 
 
     sun_coord = get_sun(time_now)
     altaz_frame = AltAz(obstime=time_now, location=location)
@@ -21,6 +21,5 @@ def automatic_tracking_better_astropy():
     print(f"Height (Altitude): {sun_altaz.alt:.6f}")
     print(f"Azimuth: {sun_altaz.az:.6f}")
 
-# Run in a loop
 while True:
     automatic_tracking_better_astropy()
